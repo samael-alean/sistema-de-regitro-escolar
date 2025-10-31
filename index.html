@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Registro Escolar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sistema de Registro Escolar</h1>
+            <p class="subtitle">Gestión de estudiantes del colegio</p>
+        </header>
+
+        <div class="app-container">
+            <section class="form-section">
+                <h2 class="form-title">Registro de Estudiantes</h2>
+                <form id="studentForm">
+                    <input type="hidden" id="studentId">
+                    
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="enrollmentFile">Ficha de Matrícula</label>
+                        <input type="text" id="enrollmentFile" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="grade">Grado</label>
+                        <select id="grade" required>
+                            <option value="">Seleccione un grado</option>
+                            <option value="1ro Primaria">1ro Primaria</option>
+                            <option value="2do Primaria">2do Primaria</option>
+                            <option value="3ro Primaria">3ro Primaria</option>
+                            <option value="4to Primaria">4to Primaria</option>
+                            <option value="5to Primaria">5to Primaria</option>
+                            <option value="6to Primaria">6to Primaria</option>
+                            <option value="1ro Secundaria">1ro Secundaria</option>
+                            <option value="2do Secundaria">2do Secundaria</option>
+                            <option value="3ro Secundaria">3ro Secundaria</option>
+                            <option value="4to Secundaria">4to Secundaria</option>
+                            <option value="5to Secundaria">5to Secundaria</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="firstName">Nombres</label>
+                        <input type="text" id="firstName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastName">Apellidos</label>
+                        <input type="text" id="lastName" required>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <button type="submit" class="btn-add" id="addBtn">Agregar Estudiante</button>
+                        <button type="button" class="btn-update" id="updateBtn" style="display: none;">Actualizar</button>
+                        <button type="button" class="btn-cancel" id="cancelBtn" style="display: none;">Cancelar</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="list-section">
+                <h2 class="form-title">Lista de Estudiantes</h2>
+                
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="Buscar estudiante...">
+                        <button class="search-btn" id="searchBtn">Buscar</button>
+                        <button class="btn-cancel" id="clearSearchBtn" style="display: none;">Limpiar</button>
+                    </div>
+                </div>
+                
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <h3>Total Estudiantes</h3>
+                        <span id="totalStudents">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Encontrados</h3>
+                        <span id="foundStudents">0</span>
+                    </div>
+                </div>
+                
+                <div class="table-container">
+                    <table id="studentsTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombres</th>
+                                <th>Apellidos</th>
+                                <th>Correo</th>
+                                <th>Grado</th>
+                                <th>Ficha</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studentsTableBody">
+                            <!-- Los datos se cargarán aquí con JavaScript -->
+                        </tbody>
+                    </table>
+                    <div id="emptyMessage" class="empty-message" style="display: none;">
+                        No hay estudiantes registrados. Agregue el primer estudiante.
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>Sistema de Registro Escolar &copy; 2023 - Todos los derechos reservados</p>
+        </footer>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <script src="database.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
